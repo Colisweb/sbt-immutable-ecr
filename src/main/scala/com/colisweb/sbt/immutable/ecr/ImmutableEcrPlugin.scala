@@ -11,7 +11,7 @@ import scala.sys.process._
 object ImmutableEcrPlugin extends AutoPlugin {
 
   object autoImport {
-    lazy val ImmutableEcr = config("ecr")
+    lazy val ImmutableEcr = config("immutableecr")
 
     lazy val region = settingKey[Regions]("Amazon EC2 region.")
   }

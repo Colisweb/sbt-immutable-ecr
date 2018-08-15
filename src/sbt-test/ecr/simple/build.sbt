@@ -1,7 +1,13 @@
+import java.util.UUID
+
 import com.amazonaws.regions.Regions
 
-scalaVersion  := "2.11.8"
+name := "sbt-immutable-ecr-test-0"
 
-enablePlugins(EcrPlugin)
+version := UUID.randomUUID().toString
 
-region         in Ecr := Regions.US_EAST_1
+scalaVersion  := "2.12.6"
+
+enablePlugins(JavaAppPackaging, ImmutableEcrPlugin)
+
+ImmutableEcr / region := Regions.EU_WEST_1
