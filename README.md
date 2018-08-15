@@ -7,7 +7,7 @@ An [SBT](http://www.scala-sbt.org/) plugin for managing [Docker](http://docker.i
 
 This project is a fork of [sbt-ecr](https://github.com/sbilinski/sbt-ecr) aiming to enforce immutability in the Docker tags management.
 
-We want to thanks all the initial contrinutors of `sbt-ecr` for their work.
+We want to thanks all the contrinutors of `sbt-ecr` for their work.
 
 ## Features
 
