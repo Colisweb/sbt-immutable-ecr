@@ -97,7 +97,7 @@ private[ecr] object AwsEcr {
     AmazonECRClientBuilder
       .standard()
       .withRegion(region.getName)
-      .withCredentials(credentialsProvider)
+      .withCredentials(credentialsProvider())
       .build()
 
 }

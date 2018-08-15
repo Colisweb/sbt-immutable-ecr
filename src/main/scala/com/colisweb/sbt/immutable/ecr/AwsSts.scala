@@ -14,7 +14,7 @@ private[ecr] object AwsSts {
     AWSSecurityTokenServiceClientBuilder
       .standard()
       .withRegion(region.getName)
-      .withCredentials(credentialsProvider)
+      .withCredentials(credentialsProvider())
       .build()
       .getCallerIdentity(request)
       .getAccount
