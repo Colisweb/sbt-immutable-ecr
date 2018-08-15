@@ -20,7 +20,7 @@ Each `version` (or `tag`) in your registry is uniq and immutable.
 
 ### Why is this important ?
 
-1. Because we want to be 100% confident when we push a new version of our app to the registry that we're not overriding an already publised version by mistake.
+1. Because we want to be 100% confident when we push a new version of our app to the registry that we're not overriding an already published version by mistake.
 2. Because when we rollback our production servers to a previous version, we want to be 100% confident that the version we're rollbacking to is the version we're rollbacking to.
 3. Because immutability is awesome !
 
