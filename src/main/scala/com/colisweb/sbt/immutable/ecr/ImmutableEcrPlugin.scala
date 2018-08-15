@@ -14,7 +14,7 @@ object ImmutableEcrPlugin extends AutoPlugin {
     lazy val ImmutableEcr = config("immutableecr")
 
     lazy val region = settingKey[Regions]("Amazon EC2 region.")
-    lazy val accoundId =
+    lazy val accountId =
       settingKey[String]("AWS Account ID. https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html")
   }
   import autoImport._
@@ -28,7 +28,7 @@ object ImmutableEcrPlugin extends AutoPlugin {
       Seq(
         dockerRepository := {
           val regionV = getRegion.value
-          val id      = accoundId.value
+          val id      = accountId.value
 
           Some(s"$id.dkr.ecr.$regionV.${regionV.getDomain}")
         },
@@ -40,7 +40,7 @@ object ImmutableEcrPlugin extends AutoPlugin {
     implicit val logger: ManagedLogger = streams.value.log
 
     val tagToPush         = (Docker / dockerAlias).value.tag
-    val alreadyPushedTags = AwsEcr.alreadyExistingTags(getRegion.value, accoundId.value, (Docker / name).value)
+    val alreadyPushedTags = AwsEcr.alreadyExistingTags(getRegion.value, accountId.value, (Docker / name).value)
 
     if (tagToPush.nonEmpty && alreadyPushedTags.contains(tagToPush.get)) {
       sys.error("ImmutableEcr: the tag you're trying to push already exists")
