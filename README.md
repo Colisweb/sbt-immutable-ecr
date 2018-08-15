@@ -13,8 +13,18 @@ We want to thanks all the contrinutors of `sbt-ecr` for their work.
 
 Enable the use of the [sbt-native-packager DockerPlugin](https://www.scala-sbt.org/sbt-native-packager/formats/docker.html) with [Amazon ECR](https://aws.amazon.com/ecr/) in an immutable way.
 
-Prerequisites
--------------
+## Immutable ?
+
+With this plugin you'll not be able to push two times the same `version` to your ECS registry.
+Each `version` (or `tag`) in your registry is uniq and immutable.
+
+### Why is this important ?
+
+1. Because we want to be 100% confident when we push a new version of our app to the registry that we're not overriding an already publised version by mistake.
+2. Because when we rollback our production servers to a previous version, we want to be 100% confident that the version we're rollbacking to is the version we're rollbacking to.
+3. Because immutability is awesome !
+
+## Prerequisites
 
 The plugin assumes that [sbt-native-packager](https://github.com/sbt/sbt-native-packager) has been included in your SBT build configuration.    
 This can be done by adding the plugin following instructions at http://www.scala-sbt.org/sbt-native-packager/ or by adding
