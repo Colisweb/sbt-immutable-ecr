@@ -36,7 +36,7 @@ Add the following to your `project/plugins.sbt` file:
 ```scala
 resolvers += Resolver.bintrayRepo("colisweb", "sbt-plugins")
 
-addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.4.0")
+addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.5.0")
 ```
 
 Add `sbt-immutable-ecr` settings to your `build.sbt`:   
@@ -46,11 +46,13 @@ import com.amazonaws.regions.Regions
 
 enablePlugins(ImmutableEcrPlugin)
 
+ImmutableEcr / accountId := "123456789912" // More info: https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html
 ImmutableEcr / region := Regions.US_EAST_1
 ```
 
 That's all ! :tada:
 
-:warning: This plugins will set the `Docker / dockerRepository` value for you, so you **SHOULD NOT** set it in your `build.sbt`.
+:warning: This plugins will set the `Docker / dockerRepository` value for you, so you **SHOULD NOT SET** it in your `build.sbt`.
+:warning: Because of how ECR works, you **SHOULD NOT SET** the `Docker / dockerUsername`
 
 Now you can use the normal workflow of the [sbt-native-packager DockerPlugin](https://www.scala-sbt.org/sbt-native-packager/formats/docker.html).
