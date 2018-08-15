@@ -6,7 +6,6 @@ import sbt.Keys._
 import sbt.internal.util.ManagedLogger
 import sbt.{Def, _}
 
-import scala.language.postfixOps
 import scala.sys.process._
 
 object ImmutableEcrPlugin extends AutoPlugin {
@@ -31,9 +30,21 @@ object ImmutableEcrPlugin extends AutoPlugin {
 
           Some(s"$accountId.dkr.ecr.$regionV.${regionV.getDomain}")
         },
-        publish := ((Docker / publish) dependsOn (createRepository, login)).value
+        publish := ((Docker / publish) dependsOn (createRepository, taskAlreadyCreated, login)).value
       )
     }
+
+  private lazy val taskAlreadyCreated: Def.Initialize[Task[Unit]] = Def.task {
+    implicit val logger: ManagedLogger = streams.value.log
+
+    val accountId         = AwsSts.accountId(getRegion.value)
+    val tagToPush         = (Docker / dockerAlias).value.tag
+    val alreadyPushedTags = AwsEcr.alreadyExistingTags(getRegion.value, accountId, (Docker / name).value)
+
+    if (tagToPush.nonEmpty && alreadyPushedTags.contains(tagToPush.get)) {
+      sys.error("ImmutableEcr: the tag you're trying to push already exists")
+    }
+  }
 
   private lazy val createRepository: Def.Initialize[Task[Unit]] = Def.task {
     implicit val logger: ManagedLogger = streams.value.log
