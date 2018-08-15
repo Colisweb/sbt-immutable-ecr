@@ -36,7 +36,7 @@ Add the following to your `project/plugins.sbt` file:
 ```scala
 resolvers += Resolver.bintrayRepo("colisweb", "sbt-plugins")
 
-addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.3.0")
+addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.4.0")
 ```
 
 Add `sbt-immutable-ecr` settings to your `build.sbt`:   
