@@ -28,7 +28,7 @@ object ImmutableEcrPlugin extends AutoPlugin {
       Seq(
         dockerRepository := {
           val regionV = getRegion.value
-          val id      = accountId.value
+          val id      = (ImmutableEcr / accountId).value
 
           Some(s"$id.dkr.ecr.$regionV.${regionV.getDomain}")
         },
@@ -39,8 +39,9 @@ object ImmutableEcrPlugin extends AutoPlugin {
   private lazy val taskAlreadyCreated: Def.Initialize[Task[Unit]] = Def.task {
     implicit val logger: ManagedLogger = streams.value.log
 
-    val tagToPush         = (Docker / dockerAlias).value.tag
-    val alreadyPushedTags = AwsEcr.alreadyExistingTags(getRegion.value, accountId.value, (Docker / name).value)
+    val tagToPush = (Docker / dockerAlias).value.tag
+    val alreadyPushedTags =
+      AwsEcr.alreadyExistingTags(getRegion.value, (ImmutableEcr / accountId).value, (Docker / name).value)
 
     if (tagToPush.nonEmpty && alreadyPushedTags.contains(tagToPush.get)) {
       sys.error("ImmutableEcr: the tag you're trying to push already exists")
