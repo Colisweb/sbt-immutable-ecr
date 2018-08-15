@@ -2,6 +2,7 @@
 
 An [SBT](http://www.scala-sbt.org/) plugin for managing [Docker](http://docker.io) images within [Amazon ECR](https://aws.amazon.com/ecr/) in an immutable way.
 
+[ ![Download](https://api.bintray.com/packages/colisweb/sbt-plugins/sbt-immutable-ecr/images/download.svg) ](https://bintray.com/colisweb/sbt-plugins/sbt-immutable-ecr/_latestVersion)
 [![Build Status](https://travis-ci.org/Colisweb/sbt-immutable-ecr.svg?branch=master)](https://travis-ci.org/Colisweb/sbt-immutable-ecr)
 
 This project is a fork of [sbt-ecr](https://github.com/sbilinski/sbt-ecr) aiming to enforce immutability in the Docker tags management.
@@ -24,6 +25,8 @@ another plugin that includes and initializes it (e.g. the SBT plugin for Play 2.
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
+resolvers += Resolver.bintrayRepo("colisweb", "sbt-plugins")
+
 addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.1.0")
 ```
 
