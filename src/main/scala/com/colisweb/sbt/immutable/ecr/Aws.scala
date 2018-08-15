@@ -5,7 +5,7 @@ import com.amazonaws.auth.profile.ProfileCredentialsProvider
 
 private[ecr] object Aws {
 
-  val credentialsProvider: AWSCredentialsProvider =
+  def credentialsProvider: AWSCredentialsProvider =
     new AWSCredentialsProviderChain(
       new EnvironmentVariableCredentialsProvider(),
       new SystemPropertiesCredentialsProvider(),
