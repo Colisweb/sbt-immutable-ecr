@@ -1,4 +1,4 @@
-# sbt-ecr
+# sbt-immutable-ecr
 
 An [SBT](http://www.scala-sbt.org/) plugin for managing [Docker](http://docker.io) images within [Amazon ECR](https://aws.amazon.com/ecr/) in an immutable way.
 
