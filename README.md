@@ -53,6 +53,6 @@ ImmutableEcr / region := Regions.US_EAST_1
 That's all ! :tada:
 
 :warning: This plugins will set the `Docker / dockerRepository` value for you, so you **SHOULD NOT SET** it in your `build.sbt`.
-:warning: Because of how ECR works, you **SHOULD NOT SET** the `Docker / dockerUsername`
+:warning: Because of how ECR works, you **SHOULD NOT SET** `Docker / dockerUsername`.
 
 Now you can use the normal workflow of the [sbt-native-packager DockerPlugin](https://www.scala-sbt.org/sbt-native-packager/formats/docker.html).
