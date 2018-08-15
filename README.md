@@ -5,8 +5,7 @@ An [SBT](http://www.scala-sbt.org/) plugin for managing [Docker](http://docker.i
 [ ![Download](https://api.bintray.com/packages/colisweb/sbt-plugins/sbt-immutable-ecr/images/download.svg) ](https://bintray.com/colisweb/sbt-plugins/sbt-immutable-ecr/_latestVersion)
 [![Build Status](https://travis-ci.org/Colisweb/sbt-immutable-ecr.svg?branch=master)](https://travis-ci.org/Colisweb/sbt-immutable-ecr)
 
-This project is a fork of [sbt-ecr](https://github.com/sbilinski/sbt-ecr) aiming to enforce immutability in the Docker tags management.
-
+This project is a fork of [sbt-ecr](https://github.com/sbilinski/sbt-ecr) aiming to enforce immutability in the Docker tags management.   
 We want to thanks all the contrinutors of `sbt-ecr` for their work.
 
 ## Features
