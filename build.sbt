@@ -11,7 +11,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.3.6" % "provided")
 libraryDependencies ++= {
   val amazonSdkV = "1.11.387"
   Seq(
-    "com.amazonaws" % "aws-java-sdk-sts" % amazonSdkV,
     "com.amazonaws" % "aws-java-sdk-ecr" % amazonSdkV,
     "org.scalatest" %% "scalatest"       % "3.0.5" % "test"
   )
