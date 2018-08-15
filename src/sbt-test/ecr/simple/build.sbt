@@ -10,5 +10,5 @@ scalaVersion  := "2.12.6"
 
 enablePlugins(JavaAppPackaging, ImmutableEcrPlugin)
 
-ImmutableEcr / accountId := "guizmaii"
+ImmutableEcr / accountId := "591549453135"
 ImmutableEcr / region := Regions.EU_WEST_1
