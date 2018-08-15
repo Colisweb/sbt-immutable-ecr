@@ -24,6 +24,8 @@ another plugin that includes and initializes it (e.g. the SBT plugin for Play 2.
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
+resolvers += Resolver.bintrayRepo("colisweb", "sbt-plugins")
+
 addSbtPlugin("com.colisweb.sbt" % "sbt-immutable-ecr" % "0.1.0")
 ```
 
